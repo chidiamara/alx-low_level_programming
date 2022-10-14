@@ -1,6 +1,10 @@
 #include <stdio.h>
-/**Using the builtin function 'puts' to print line to standard output*/
-int main(void) // contains a sentence
+/**
+* main - Using the builtin function 'puts' to print line to standard output
+*
+* Return: 0
+*/
+int main(void)
 {
 puts("\"Programming is like building a multilingual puzzle"
 );
