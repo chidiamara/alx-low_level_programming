@@ -7,3 +7,4 @@
 * puts.c
 * printf.c
 * size.c 
+* 100-intel
