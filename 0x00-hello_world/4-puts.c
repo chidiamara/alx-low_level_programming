@@ -1,12 +1,16 @@
 #include <stdio.h>
+
 /**
-* main - Using the builtin function 'puts' to print line to standard output
-*
-* Return: 0
-*/
+ * main - use puts to print a string
+ *
+ * Return: 0 (success)
+ */
+
 int main(void)
 {
-puts("\"Programming is like building a multilingual puzzle"
-);
-return (0);
+	char str[] = "\"Programming is like building a multilingual puzzle";
+
+	puts(str);
+
+	return (0);
 }
