@@ -3,8 +3,8 @@
 
 /**
  * main - print alphabet in lowercase, then uppercase
- *
- * Return: 0 (success)
+ * followed by a new line
+ * Return: Always 0 (Success)
  */
 
 int main(void)
@@ -13,8 +13,6 @@ int main(void)
 
 	for (c = 'a'; c <= 'z'; c++)
 		putchar(c);
-
-	putchar('\n');
 
 	for (c = 'A'; c <= 'Z'; c++)
 		putchar(c);
