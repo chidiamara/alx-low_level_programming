@@ -19,13 +19,13 @@ int main(void)
 
 			putchar((i2 % 10) + '0');
 
-			if (i1 != 8 && i2 != 9)
-			{
+			if (i1 == 8 && i2 == 9)
+				continue;
 
 			putchar(',');
 
 			putchar(' ');
-			}
+
 		}
 	}
 
