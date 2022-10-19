@@ -8,3 +8,6 @@
 
 * File: 2-print\_alphabet\_x10.c prints 10 times the alphabet, in lowercase, followed by a new line.
 
+* File: 3-islower.c checks for lowercase character.
+
+
