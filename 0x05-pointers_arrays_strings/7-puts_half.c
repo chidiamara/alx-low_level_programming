@@ -6,7 +6,7 @@
  * @str: string to be printed
  */
 
-void puts_half(chat *str)
+void puts_half(char *str)
 {
 	int lgt, n, i;
 
