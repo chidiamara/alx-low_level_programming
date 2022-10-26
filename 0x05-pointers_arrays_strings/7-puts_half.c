@@ -23,6 +23,7 @@ void puts_half(char *str)
 		{
 			_putchar(str[i]);
 		}
+	}
 		else if (lgt % 2)
 		{
 			for (n = (lgt - 1) / 2; n < lgt - 1; n++)
@@ -31,6 +32,5 @@ void puts_half(char *str)
 				_putchar(str[n + 1]);
 			}
 		}
-	}
-	_putchar('\n');
+		_putchar('\n');
 }
