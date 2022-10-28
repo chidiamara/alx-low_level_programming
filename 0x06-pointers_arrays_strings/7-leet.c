@@ -9,18 +9,21 @@
 
 char *leet(char *a)
 {
-	int i;
-	int j;
-	char arr1[10] = {'a', 'A', 'e', 'E', 'o', 'O', 't', 'T', 'I', 'L'};
-	char arr2[10] = {'4', '4', '3', '3', '0', '0', '7', '7', '1', '1'};
+	int i, j;
 
-	for (i = 0; a[i]; i++)
+	char letter[] = "aeotlAEOTL";
+	char num[] = "4307143071";
+
+	for (i = 0; a[i] != '\0'; i++)
 	{
-		for (j = 0; j <= 10; j++)
+		j = 0;
+		while (letter[j] != '\0')
 		{
-			if (a[i] == arr1[j])
-
-				a[i] = arr2[j];
+			if (a[i] == letter[j])
+			{
+				a[i] = num[j];
+			}
+			j++;
 		}
 	}
 	return (a);
