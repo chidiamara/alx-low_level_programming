@@ -5,12 +5,13 @@
  * @dest: A pointer to a character that will be changed
  * @src: A pointer to a character that will be changed
  * @n: value
- * Return: dest
+ * Return: destination string
  */
 
-char *_strncat(char *dest, char *srv, int n)
+char *_strncat(char *dest, char *src, int n)
 {
 	int i, j;
+
 	i = 0;
 	while (dest[i] != '\0')
 	{
