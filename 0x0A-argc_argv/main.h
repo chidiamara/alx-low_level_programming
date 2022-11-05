@@ -1,2 +1,6 @@
-#ifndef MAIN_H                                 #define MAIN_H                                                                                int string_isdigit(char *s);
-                                               #endif
+#ifndef _MAIN_H
+#define _MAIN_H
+
+int _putchar(char c);
+
+#endif
