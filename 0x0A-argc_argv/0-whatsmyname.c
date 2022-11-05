@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "holberton.h"
+#include "main.h"
 /**
 * main - print the name of the program followed by a new line
 *@argc: int
