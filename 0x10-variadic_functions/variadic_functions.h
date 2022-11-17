@@ -3,7 +3,7 @@
 
 #include <stdarg.h>
 #include <stdio.h>
-
+#include <stdlib.h>
 /**
  * struct types - pointer to function with corresponding letter
  * @letter: type name
