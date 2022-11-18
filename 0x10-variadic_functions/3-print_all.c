@@ -1,91 +1,79 @@
 #include "variadic_functions.h"
 
 /**
- * print_c - prints a character
- * @valist: argument list
- */
-
-void print_c(va_list valist)
+*print_char - use va arg to print the char
+*@c: char
+*/
+void print_char(va_list c)
 {
-	printf("%c", va_arg(valist, int));
+printf("%c", va_arg(c, int));
 }
 
 /**
- * print_i - prints an integer
- * @valist: argument list
- */
-
-void print_i(va_list valist)
+*print_integer - use va arg to print the integer
+*@i: int
+*/
+void print_integer(va_list i)
 {
-	printf("%d", va_arg(valist, int));
+printf("%d", va_arg(i, int));
+}
+/**
+*print_float - use va arg to print float
+*@f: float
+*/
+void print_float(va_list f)
+{
+printf("%f", va_arg(f, double));
 }
 
 /**
- * print_fl - prints a float
- * @valist: argument list
- */
-
-void print_fl(va_list valist)
+*print_string - use va arg to print the string or nil
+*@st: string
+*/
+void print_string(va_list st)
 {
-	printf("%f", va_arg(valist, double));
+char *string = va_arg(st, char *);
+if (string == NULL)
+{
+string = "(nil)";
+}
+printf("%s", string);
 }
 
 /**
- * print_s - prints a string
- * @valist: argument list
- */
-
-void print_s(va_list valist)
-{
-	char *str;
-
-	str = va_arg(valist, char *);
-	if (str == NULL)
-	{
-		printf("(nil)");
-		return;
-	}
-	printf("%s", str);
-}
-
-/**
- * print_all - prints all args
- * @format: string containing format arguments
- */
-
+*print_all - prints anything
+*@format: a pointer to string that contains types of parameters
+*/
 void print_all(const char * const format, ...)
 {
-	unsigned int i = 0, j = 0;
-	va_list valist;
-	char *sep = "";
-
-	fmt vlist[] = {
-		{"c", print_c},
-		{"i", print_i},
-		{"f", print_fl},
-		{"s", print_s},
-		{NULL, NULL}
-	};
-
-	va_start(valist, format);
-
-	while (format && format[i])
-	{
-		while (vlist[j].name)
-		{
-			if (format[i] == *vlist[j].name)
-			{
-				printf("%s", sep);
-				vlist[j].type(valist);
-				sep = ", ";
-			}
-			j++;
-		}
-		i++;
-		j = 0;
-	}
-
-	printf("\n");
-
-	va_end(valist);
+my_str mytypes[] = {
+{"c", print_char},
+{"i", print_integer},
+{"f", print_float},
+{"s", print_string},
+{NULL, NULL}
+};
+va_list ls;
+unsigned int i = 0, j;
+char *separator = "";
+va_start(ls, format);
+i = 0;
+while (format && format[i])
+{
+j = 0;
+while (mytypes[j].letter != NULL)
+{
+if (format[i] == *(mytypes[j].letter))
+{
+printf("%s", separator);
+mytypes[j].f(ls);
+separator = ", ";
+break;
+}
+j++;
+}
+i++;
+}
+va_end(ls);
+printf("\n");
 }
