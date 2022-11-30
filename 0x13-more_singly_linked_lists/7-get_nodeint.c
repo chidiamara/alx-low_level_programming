@@ -1,28 +1,24 @@
 #include "lists.h"
+
 /**
-*get_nodeint_at_index - returns the nth node of a list
-*@head: pointer to first node
-*@index: the index of the returned node
-*Return: pointer to the nth node
+* get_nodeint_at_index - return nth node of linked list
+* @head: pointer to first element
+* @index: int to delete node at
+*
+* Return: head
 */
+
 listint_t *get_nodeint_at_index(listint_t *head, unsigned int index)
 {
-unsigned int i = 0;
-listint_t *nth;
+	unsigned int i;
+	listint_t *temp = head;
 
-if (head == '\0')
-return (0);
 
-nth = head;
-while (i < index)
-{
-nth = nth->next;
-i++;
+	for (i = 0; temp && i < index; i++)
+		temp = temp->next;
 
-if (!nth)
-return (0);
+	if (!temp)
+		return (NULL);
 
-}
-
-return (nth);
+	return (temp);
 }
