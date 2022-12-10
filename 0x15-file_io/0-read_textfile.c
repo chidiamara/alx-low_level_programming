@@ -1,54 +1,34 @@
 #include "main.h"
 
 /**
-* free_buff - free string
-* @buff: string to pass
-*
-* Return: 0
+* read_textfile - reads a text file and prints it to the POSIX standard output
+* @filename: name of the file that we will open
+* @letters: number of letters it should read and print
+* Return: the actual number of letters that we could read and print, 0 if fails
 */
-
-int free_buff(char *buff)
-{
-	free(buff);
-	return (0);
-}
-
-/**
-* read_textfile - print letters from a text file to standard output
-* @filename: file to open
-* @letters: number of letters to print
-*
-* Return: amount of letters read and written, 0 on fail
-*/
-
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	ssize_t rcount, wcount;
-	char *buffer;
-	int fd;
+char *mybuf = malloc(sizeof(char) * letters);
+int fd;
+ssize_t rl, rw;
 
-	if (!filename || letters < 1)
-		return (0);
+if (filename == NULL)
+return (0);
 
-	fd = open(filename, O_RDONLY);
-	if (fd == -1)
-		return (0);
+fd = open(filename, O_RDWR);
 
-	buffer = malloc(sizeof(char) * letters);
-	if (!buffer)
-		free_buff(buffer);
+if (fd == -1)
+return (0);
 
-	rcount = read(fd, buffer, letters);
-	if (!rcount)
-		free_buff(buffer);
+rl = read(fd, mybuf, letters);
+if (rl < 0)
+return (0);
 
-	wcount = write(STDOUT_FILENO, buffer, rcount);
-	if (!wcount)
-		free_buff(buffer);
+rw = write(STDOUT_FILENO, mybuf, rl);
+if (rw < 0)
+return (0);
 
-	close(fd);
-
-	free(buffer);
-
-	return (wcount);
+free(mybuf);
+close(fd);
+return (rw);
 }
